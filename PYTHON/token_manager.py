@@ -59,9 +59,9 @@ class TokenManager:
 
     # 从磁盘读取token
     def _read_token(self):
-        if not self.access_token and os.path.isfile(TOKEN_CACHE_PATH):
+        if not self.access_token and os.path.isfile(self.app_id + '_' + TOKEN_CACHE_PATH):
             token_dict = {}
-            with open(self.app + '_' + TOKEN_CACHE_PATH, 'r') as f:
+            with open(self.app_id + '_' + TOKEN_CACHE_PATH, 'r') as f:
                 token_dict = json.load(f)
             if token_dict['access_token']:
                 self.access_token = token_dict['access_token']
