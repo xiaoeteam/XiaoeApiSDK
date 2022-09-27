@@ -98,6 +98,7 @@ class Http
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
             }
         } else {
+            curl_setopt($ch,CURLOPT_HTTPHEADER,["Content-Type:application/json"]);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
         }
 
